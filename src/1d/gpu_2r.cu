@@ -126,12 +126,14 @@ gpu_1d2r(const double *__restrict__ in, double *__restrict__ out, const double *
     CUDA_CHECK(cudaDeviceSynchronize());
 
     std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
-    std::cout << "LoRAStencil(1D 1d2r): " << std::endl;
-    std::cout << "Time = " << std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count() << "[ms]"
-            << std::endl;
+    // std::cout << "LoRAStencil(1D 1d2r): " << std::endl;
+    // std::cout << "Time = " << std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count() << "[ms]"
+    //         << std::endl;
 
     double secs = std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count() / 1e6;
-    printf("GStencil/s = %f\n", ((double) input_n * times * 2) / secs / 1e9);
+    // printf("GStencil/s = %f\n", ((double) input_n * times * 2) / secs / 1e9);
+
+    std::cout <<  std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count() << ", " << ((double)input_n * times * 2) / secs / 1e9 << std::endl;
 
     CUDA_CHECK(cudaMemcpy(out, array_d[i % 2], array_size - sizeof(double), cudaMemcpyDeviceToHost));
 }

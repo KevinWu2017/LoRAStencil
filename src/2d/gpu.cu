@@ -412,11 +412,12 @@ void gpu_box_2d3r(const double *__restrict__ in, double *__restrict__ out, const
     }
     CUDA_CHECK(cudaDeviceSynchronize());
     std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
-    std::cout << "LoRAStencil(2D box_2d3r): " << std::endl;
-    std::cout << "Time = " << std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count() << "[ms]"
-              << std::endl;
+    // std::cout << "LoRAStencil(2D box_2d3r): " << std::endl;
+    // std::cout << "Time = " << std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count() << "[ms]"
+    //           << std::endl;
     double secs = std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count() / 1e6;
-    printf("GStencil/s = %f\n", ((double) input_m * input_n * times * 3) / secs / 1e9);
+    // printf("GStencil/s = %f\n", ((double) input_m * input_n * times * 3) / secs / 1e9);
+    std::cout <<  std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count() << ", " << ((double) input_m * input_n * times * 3) / secs / 1e9 << std::endl;
 
     CUDA_CHECK(cudaMemcpy(out, array_d[i % 2], array_size, cudaMemcpyDeviceToHost));
 
@@ -471,11 +472,12 @@ void gpu_star_2d3r(const double *__restrict__ in, double *__restrict__ out, cons
     }
     CUDA_CHECK(cudaDeviceSynchronize());
     std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
-    std::cout << "LoRAStencil(2D star_2d3r): " << std::endl;
-    std::cout << "Time = " << std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count() << "[ms]"
-              << std::endl;
+    // std::cout << "LoRAStencil(2D star_2d3r): " << std::endl;
+    // std::cout << "Time = " << std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count() << "[ms]"
+    //           << std::endl;
     double secs = std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count() / 1e6;
-    printf("GStencil/s = %f\n", ((double) input_m * input_n * times) / secs / 1e9);
+    // printf("GStencil/s = %f\n", ((double) input_m * input_n * times) / secs / 1e9);
+    std::cout <<  std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count() << ", " << ((double) input_m * input_n * times * 3) / secs / 1e9 << std::endl;
     CUDA_CHECK(cudaMemcpy(out, array_d[i % 2], array_size, cudaMemcpyDeviceToHost));
 
 }
@@ -546,11 +548,12 @@ void gpu_star_2d1r(const double *__restrict__ in, double *__restrict__ out, cons
     }
     CUDA_CHECK(cudaDeviceSynchronize());
     std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
-    std::cout << "LoRAStencil(2D star_2d1r): " << std::endl;
-    std::cout << "Time = " << std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count() << "[ms]"
-              << std::endl;
+    // std::cout << "LoRAStencil(2D star_2d1r): " << std::endl;
+    // std::cout << "Time = " << std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count() << "[ms]"
+    //           << std::endl;
     double secs = std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count() / 1e6;
-    printf("GStencil/s = %f\n", ((double) input_m * input_n * times * 3) / secs / 1e9);
+    // printf("GStencil/s = %f\n", ((double) input_m * input_n * times * 3) / secs / 1e9);
+    std::cout <<  std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count() << ", " << ((double) input_m * input_n * times * 3) / secs / 1e9 << std::endl;
     CUDA_CHECK(cudaMemcpy(out, array_d[i % 2], array_size, cudaMemcpyDeviceToHost));
 
 

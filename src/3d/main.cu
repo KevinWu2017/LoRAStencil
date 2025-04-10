@@ -107,7 +107,8 @@ int main(int argc, char *argv[]) {
 
     // print brief info
 
-    printf("INFO: shape = %s, h = %d, m = %d, n = %d, times = %d\n", ShapeStr[compute_shape], h, m, n, times);
+    // printf("INFO: shape = %s, h = %d, m = %d, n = %d, times = %d\n", ShapeStr[compute_shape], h, m, n, times);
+    std::cout << "LoRAStencil, " << ShapeStr[compute_shape] << ", " << h << ", " << m << ", " << n << ", " << times << ", ";
 
     double param_box_3d1r[27] = {0};
 
