@@ -92,7 +92,7 @@ int main(int argc, char *argv[]) {
     // print brief info
 
     // printf("INFO: shape = %s, n = %d, times = %d\n", ShapeStr[compute_shape], n, times);
-    std::cout << "LoRAStencil, " << ShapeStr[compute_shape] << ", , , " << n << ", " << times << ", ";
+    std::cout << "LoRAStencil, " << ShapeStr[compute_shape] << ", 1, 1, " << n << ", " << times << ", ";
 
     int cols = n + 2 * 4;
     size_t matrix_size = (unsigned long) cols * sizeof(double);
