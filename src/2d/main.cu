@@ -276,6 +276,8 @@ int main(int argc, char *argv[]) {
             break;
         }
         case box_2d1r:
+            gpu_box_2d1r(matrix, output, param, times, m, n);
+            break;
         case box_2d3r:
             gpu_box_2d3r(matrix, output, param, times, m, n);
             break;

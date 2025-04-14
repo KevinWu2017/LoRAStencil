@@ -48,6 +48,8 @@ void gpu_star_2d1r(const double *__restrict__ in, double *__restrict__ out, cons
 
 void gpu_star_2d3r(const double *__restrict__ in, double *__restrict__ out, const double *__restrict__ params, const int times, const int input_m, const int input_n);
 
+void gpu_box_2d1r(const double *__restrict__ in, double *__restrict__ out, const double *__restrict__ params, const int times, const int input_m, const int input_n);
+
 void gpu_box_2d3r(const double *__restrict__ in, double *__restrict__ out, const double *__restrict__ params, const int times, const int input_m, const int input_n);
 
 void test_gpu_star_2d1r(const double *__restrict__ in, double *__restrict__ out, const double *__restrict__ params, const int times, const int input_m, const int input_n);
