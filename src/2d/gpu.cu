@@ -440,6 +440,7 @@ void gpu_box_2d1r(const double *__restrict__ in, double *__restrict__ out, const
     for (; i < times; i++)
     {
         kernel2d_box2d3r<<<grid_config, block_config>>>(array_d[i % 2], array_d[(i + 1) % 2], cols);
+        cudaDeviceSynchronize();
     }
     CUDA_CHECK(cudaDeviceSynchronize());
     std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
@@ -589,6 +590,7 @@ void gpu_box_2d3r(const double *__restrict__ in, double *__restrict__ out, const
     int i = 0;
     for (; i < times; i++) {
         kernel2d_box2d3r<<<grid_config, block_config>>>(array_d[i % 2], array_d[(i + 1) % 2], cols);
+        cudaDeviceSynchronize();
     }
     CUDA_CHECK(cudaDeviceSynchronize());
     std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
@@ -649,6 +651,7 @@ void gpu_star_2d3r(const double *__restrict__ in, double *__restrict__ out, cons
     int i = 0;
     for (; i < times; i++) {
         kernel2d_star2d3r<<<grid_config, block_config>>>(array_d[i % 2], array_d[(i + 1) % 2], cols);
+        cudaDeviceSynchronize();
     }
     CUDA_CHECK(cudaDeviceSynchronize());
     std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
@@ -725,6 +728,7 @@ void gpu_star_2d1r(const double *__restrict__ in, double *__restrict__ out, cons
     int i = 0;
     for (; i < times; i++) {
         kernel2d_star2d1r<<<grid_config, block_config>>>(array_d[i % 2], array_d[(i + 1) % 2], cols);
+        cudaDeviceSynchronize();
     }
     CUDA_CHECK(cudaDeviceSynchronize());
     std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();

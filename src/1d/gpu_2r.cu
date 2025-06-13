@@ -122,6 +122,7 @@ gpu_1d2r(const double *__restrict__ in, double *__restrict__ out, const double *
 
     for (; i < times; i++) {
         kernel_1d2r<<<grid_config, block_config>>>(array_d[i % 2], array_d[(i + 1) % 2]);
+        cudaDeviceSynchronize();
     }
     CUDA_CHECK(cudaDeviceSynchronize());
 
